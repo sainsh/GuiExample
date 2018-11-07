@@ -6,6 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 
 public class Controller {
@@ -18,14 +19,6 @@ public class Controller {
     public void onSendCommand(ActionEvent actionEvent) {
 
         try {
-
-            String bob = inputTextField.getText();
-            System.out.println(bob.charAt(bob.length() + 1));
-
-        } catch (StringIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-
-        } finally {
             if (inputTextField.getText().charAt(0) == '@') {    //set input first
                 StringBuilder s = new StringBuilder(inputTextField.getText());
                 s.deleteCharAt(0);
@@ -37,11 +30,11 @@ public class Controller {
                 StringBuilder s = new StringBuilder(inputTextField.getText());
                 s.deleteCharAt(0);
                 s.reverse();
-                if(outputTextField.getText().equals("")) {
+                if (outputTextField.getText().equals("")) {
 
                     outputTextField.setText(s.toString());
 
-                }else{
+                } else {
                     outputTextField.setText(outputTextField.getText() + "\n" + s.toString());
                 }
 
@@ -52,18 +45,33 @@ public class Controller {
 
 
                 } else {
-                    outputTextField.setText(outputTextField.getText() + "\n" + inputTextField.getText());
+                    outputTextField.appendText("\n" + inputTextField.getText());
                 }
             }
             inputTextField.setText("");
+
+
+
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+
         }
-
-
     }
 
-    public void onKeyPressed(KeyEvent keyEvent) {   //press enter to run onSendCommand event
-        if (keyEvent.getCode() == KeyCode.ENTER) {
-            onSendCommand(new ActionEvent());
+
+        public void onKeyPressed (KeyEvent keyEvent){   //press enter to run onSendCommand event
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                onSendCommand(new ActionEvent());
+            }
         }
+
+    public void imageMouseEnter(MouseEvent mouseEvent) {
+        if(outputTextField.getText().equals("")){
+            outputTextField.appendText("shit en dragehund!");
+        }else{
+            outputTextField.appendText("\nshit en dragehund!");
+        }
+
+
     }
 }
