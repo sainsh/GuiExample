@@ -26,13 +26,13 @@ public class Controller {
             System.out.println(e.getMessage());
 
         } finally {
-            if (inputTextField.getText().charAt(0) == '@') {
+            if (inputTextField.getText().charAt(0) == '@') {    //set input first
                 StringBuilder s = new StringBuilder(inputTextField.getText());
                 s.deleteCharAt(0);
                 outputTextField.setText(s.toString() + "\n" + outputTextField.getText());
 
 
-            } else if (inputTextField.getText().charAt(0) == '/') {
+            } else if (inputTextField.getText().charAt(0) == '/') { //reverse input
 
                 StringBuilder s = new StringBuilder(inputTextField.getText());
                 s.deleteCharAt(0);
@@ -45,7 +45,7 @@ public class Controller {
                     outputTextField.setText(outputTextField.getText() + "\n" + s.toString());
                 }
 
-            } else {
+            } else {    //append input
 
                 if (outputTextField.getText().equals("")) {
                     outputTextField.setText(inputTextField.getText());
@@ -61,7 +61,7 @@ public class Controller {
 
     }
 
-    public void onKeyPressed(KeyEvent keyEvent) {
+    public void onKeyPressed(KeyEvent keyEvent) {   //press enter to run onSendCommand event
         if (keyEvent.getCode() == KeyCode.ENTER) {
             onSendCommand(new ActionEvent());
         }

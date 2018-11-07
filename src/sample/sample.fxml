@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" onKeyPressed="#onKeyPressed" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" maxHeight="400" minHeight="400" onKeyPressed="#onKeyPressed" prefHeight="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -28,7 +28,7 @@
       </Label>
       <TextField fx:id="inputTextField" promptText="Indtast noget" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#onSendCommand" text="Send Kommando" GridPane.rowIndex="2" />
-      <TextArea fx:id="outputTextField" editable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" promptText="Her kommer svaret fra programmet" GridPane.rowIndex="3">
+      <TextArea fx:id="outputTextField" editable="false" maxHeight="-Infinity" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="200.0" promptText="Her kommer svaret fra programmet" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" />
          </GridPane.margin></TextArea>
